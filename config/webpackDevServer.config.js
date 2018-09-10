@@ -88,7 +88,7 @@ module.exports = function(proxy, allowedHost) {
           // use proper mime-type for wasm files
           app.get('*.wasm', function(req, res, next) {
               var options = {
-                  root: contentBase,
+                  root: paths.appPublic,
                   dotfiles: 'deny',
                   headers: {
                       'Content-Type': 'application/wasm'
