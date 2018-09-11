@@ -10,7 +10,9 @@ class App extends Component {
   render() {
     const importObject = { imports: { imported_func: arg => console.log(arg) } }
     WebAssembly.instantiateStreaming(fetch('number_adder.wasm', importObject)).then((obj) => {
-      console.log(obj)
+      // console.log(obj)
+      let addition = obj.instance.exports.add_numbers(2, 3)
+      alert(addition)
     })
     return (
       <div className="App">
